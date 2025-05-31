@@ -1,0 +1,38 @@
+<div class="home-container">
+  <header class="header">
+    <h1>Bem-vindo ao Portal de Vagas</h1>
+    <p>Encontre as melhores oportunidades de Estágio e Jovem Aprendiz!</p>
+    <div class="btn-group">
+      <button (click)="openLogin()" class="btn login-btn" type="button">
+        Entrar
+      </button>
+      <button (click)="openRegister()" class="btn register-btn" type="button">
+        Cadastrar-se
+      </button>
+    </div>
+  </header>
+  <app-login-modal *ngIf="isLoginOpen"></app-login-modal>
+  <app-register-modal
+    (back)="openRegister()"
+    *ngIf="isRegisterModalOpen"
+  ></app-register-modal>
+
+  <section class="features" *ngIf="isRegisterOpen">
+    <a href="" (click)="openRegisterModal($event)">
+      <div class="feature-card">
+        <h2>Para Candidatos</h2>
+        <p>
+          Candidaturas simples e rápidas para vagas de Estágio e Jovem Aprendiz.
+        </p>
+      </div>
+    </a>
+    <a href="">
+      <div class="feature-card">
+        <h2>Para Empresas</h2>
+        <p>
+          Publique suas vagas e encontre os melhores talentos para sua empresa.
+        </p>
+      </div>
+    </a>
+  </section>
+</div>

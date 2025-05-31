@@ -1,0 +1,90 @@
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #0077cc;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #777;
+  font-weight: 700;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #0077cc;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #777;
+  font-weight: 700;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+  color: #0077cc;
+}
+
+form label {
+  display: block;
+  float: left;
+  margin-bottom: 6px;
+  margin-left: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+form input {
+  width: 90%;
+  padding: 11px 14px;
+  margin-bottom: 18px;
+  border: 1.6px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+form button {
+  background: #4a90e2;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 13px 0;
+  border-radius: 40px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background: #357abd;
+}
