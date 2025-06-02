@@ -1,18 +1,115 @@
 <div class="wrapper">
-  <h3 id="titulo">{{ job.title }}</h3>
-  <h4 id="nome-empresa">{{ job.enterprise.companyName }}</h4>
-  <p>{{ job.type }}</p>
-  <p>{{ job.model }}</p>
-  <p>{{ job.deadline }}</p>
-  <h5 id="descricao">{{ job.description }}</h5>
-  <div class="container">
+  <div *ngIf="!isEditOpen">
+    <h3 id="titulo">{{ job.title }}</h3>
+    <h4 id="nome-empresa">{{ job.enterprise.companyName }}</h4>
+    <p>{{ job.type }}</p>
+    <p>{{ job.model }}</p>
+    <p>{{ job.deadline }}</p>
+    <h5 id="descricao">{{ job.description }}</h5>
+  </div>
+  <div class="container" *ngIf="!isEditOpen">
     <div class="div-btn">
-      <button class="btn">Ver Candidatos</button>
+      <button class="btn" *ngIf="!isUser">Ver Candidatos</button>
+      <button class="btn" (click)="applyToJob(job.id)">Candidatar-se</button>
       <button class="btn" (click)="goBack()">Voltar</button>
     </div>
     <div class="div-btn btn-crud">
-      <button class="btn edit">Editar</button>
-      <button class="btn delete" (click)="deleteJob(job)">Deletar</button>
+      <button class="btn edit" (click)="openEdit()" *ngIf="!isUser">
+        Editar
+      </button>
+      <button class="btn delete" (click)="deleteJob(job)" *ngIf="!isUser">
+        Deletar
+      </button>
     </div>
   </div>
+  <section class="features" *ngIf="isEditOpen">
+    <div class="modal-overlap">
+      <form novalidate>
+        <div class="head">
+          <label for="titulo">Título da Vaga</label>
+          <input
+            id="titulo"
+            type="text"
+            required
+            name="titulo"
+            placeholder=""
+            [(ngModel)]="job.title"
+          />
+          <label for="descricao">Descrição</label>
+          <textarea
+            id="descricao"
+            type="text"
+            required
+            name="descricao"
+            placeholder="Digite a descrição da vaga"
+            [(ngModel)]="job.description"
+          ></textarea>
+        </div>
+        <div class="rest">
+          <label for="type">Localização</label>
+          <input
+            id="type"
+            type="text"
+            required
+            name="type"
+            placeholder=""
+            style="width: 800px"
+            [(ngModel)]="job.location"
+          />
+          <label for="modelo">Modelo</label>
+          <input
+            id="modelo"
+            type="text"
+            required
+            name="modelo"
+            placeholder=""
+            style="width: 50%"
+            [(ngModel)]="job.model"
+          />
+
+          <label for="type">Tipo da vaga</label>
+          <input
+            id="type"
+            type="text"
+            required
+            name="type"
+            placeholder=""
+            style="width: 50%"
+            [(ngModel)]="job.type"
+          />
+
+          <label for="prazo">Prazo</label>
+          <input
+            id="prazo"
+            type="text"
+            required
+            name="przo"
+            placeholder=""
+            style="width: 50%"
+            [(ngModel)]="job.deadline"
+          />
+          <label for="qnt">Quantidade de Etapas</label>
+          <input
+            id="qtd"
+            type="number"
+            required
+            name="qtd"
+            placeholder=""
+            style="width: 20%"
+          />
+          <label for="nomear">Nomear Etapa</label>
+          <input
+            id="nomear"
+            type="text"
+            required
+            name="nomear"
+            placeholder=""
+            style="width: 50%"
+          />
+          <button type="button" (click)="backToJob()">Voltar</button>
+        </div>
+        <button type="submit" (click)="editJob(job.id, job)">Cadastrar</button>
+      </form>
+    </div>
+  </section>
 </div>

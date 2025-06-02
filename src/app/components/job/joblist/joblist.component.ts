@@ -1,9 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Job } from '../../../models/job';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { JobService } from '../../../services/job.service';
-import { Enterprise } from '../../../models/enterprise';
 
 @Component({
   selector: 'app-joblist',
@@ -14,15 +13,7 @@ import { Enterprise } from '../../../models/enterprise';
 export class JoblistComponent {
   lista: Job[] = [];
   jobService = inject(JobService);
-  enterprise: Enterprise = JSON.parse(localStorage.getItem('enterprise')!);
-
-  ngOnInit() {
-    this.jobService
-      .getByEnterpriseId(this.enterprise.id)
-      .subscribe((jobs: Job[]) => {
-        this.lista = jobs;
-      });
-  }
+  router = inject(Router);
 
   getAllJobs() {
     this.jobService.getAllJobs().subscribe({
@@ -34,5 +25,27 @@ export class JoblistComponent {
         alert('Erro na requisição da lista');
       },
     });
+  }
+
+  ngOnInit() {
+    const responseRaw = localStorage.getItem('response');
+
+    if (!responseRaw) {
+      console.warn('Usuário não autenticado!');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    const response = JSON.parse(responseRaw);
+
+    if (response.tipo === 'empresa') {
+      this.jobService
+        .getByEnterpriseId(response.dados.id)
+        .subscribe((jobs: Job[]) => {
+          this.lista = jobs;
+        });
+    } else if (response.tipo === 'academico') {
+      this.getAllJobs();
+    }
   }
 }

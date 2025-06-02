@@ -5,6 +5,8 @@ import { JobService } from '../../../services/job.service';
 import { Router } from '@angular/router';
 import { Job } from '../../../models/job';
 import { Enterprise } from '../../../models/enterprise';
+import { Academic } from '../../../models/academic';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register-job',
@@ -15,11 +17,24 @@ import { Enterprise } from '../../../models/enterprise';
 export class RegisterJobComponent {
   router = inject(Router);
   jobService = inject(JobService);
-  enterprise: Enterprise = JSON.parse(localStorage.getItem('enterprise')!);
+  authService = inject(AuthService);
   job: Job = new Job();
 
+  ngOnInit() {
+    const userId = this.authService.getUserId();
+    console.log(userId);
+    if (!userId) {
+      alert('Usuário não autenticado!');
+      this.router.navigate(['/login']);
+      return;
+    }
+  }
+
   createJob() {
-    this.jobService.createJob(this.enterprise.id, this.job).subscribe({
+    const userId = this.authService.getUserId();
+    if (!userId) return;
+
+    this.jobService.createJob(userId, this.job).subscribe({
       next: (message) => {
         alert('Vaga cadastrada com sucesso!');
         this.router.navigate(['dashboard/joblist']);

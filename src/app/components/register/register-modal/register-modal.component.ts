@@ -1,8 +1,8 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Enterprise } from '../../models/enterprise';
-import { EnterpriseService } from '../../services/enterprise.service';
+import { Enterprise } from '../../../models/enterprise';
+import { EnterpriseService } from '../../../services/enterprise.service';
 
 @Component({
   selector: 'app-register-modal',

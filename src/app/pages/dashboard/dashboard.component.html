@@ -1,12 +1,30 @@
 <div class="dashboard-layout">
   <aside class="sidebar" aria-label="Menu principal">
     <h1>FindAJob</h1>
-    <p *ngIf="tradeName">Bem vindo, {{ tradeName }}</p>
+    <p *ngIf="name">
+      Bem vindo, {{ name }}
+      <svg width="10" height="10">
+        <circle cx="5" cy="5" r="5" fill="green" />
+      </svg>
+    </p>
     <nav>
       <ul class="menu" role="menu">
-        <li role="menuitem">
+        <li role="menuitem" *ngIf="!isUser">
           <a
             routerLink="perfil"
+            routerLinkActive="active"
+            style="cursor: pointer"
+            tabindex="0"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
+            Home
+          </a>
+        </li>
+        <li role="menuitem" *ngIf="isUser">
+          <a
+            routerLink="perfil-academic"
             routerLinkActive="active"
             style="cursor: pointer"
             tabindex="0"
@@ -32,7 +50,7 @@
             Vagas
           </a>
         </li>
-        <li role="menuitem">
+        <li *ngIf="!isUser" role="menuitem">
           <a
             routerLink="register-job"
             routerLinkActive="active"
@@ -45,6 +63,21 @@
               />
             </svg>
             Postar vagas
+          </a>
+        </li>
+        <li *ngIf="isUser" role="menuitem">
+          <a
+            routerLink="applications-list"
+            routerLinkActive="disabled"
+            style="cursor: pointer"
+            tabindex="0"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M16 13h-3v3h-2v-3H8v-2h3V8h2v3h3v2zM19 3H5c-1.1 0-2 .9-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5a2 2 0 0 0-2-2z"
+              />
+            </svg>
+            Minhas Candidaturas
           </a>
         </li>
         <li role="menuitem">

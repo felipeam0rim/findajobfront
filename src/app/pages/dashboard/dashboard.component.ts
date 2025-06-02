@@ -6,6 +6,7 @@ import {
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,18 +16,20 @@ import {
 })
 export class DashboardComponent {
   router = inject(Router);
-  tradeName: string = '';
-
+  authService = inject(AuthService);
+  name: string = '';
+  tipo: string | null = null;
+  isUser: boolean = false;
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    const enterprise = localStorage.getItem('enterprise');
-    if (enterprise) {
-      this.tradeName = JSON.parse(enterprise).tradeName;
+    this.name = this.authService.getNome();
+    this.tipo = this.authService.getTipo();
+    if (this.tipo == 'academico') {
+      this.isUser = true;
     }
   }
-
   logout() {
-    localStorage.removeItem('enterprise');
+    this.authService.logout();
   }
 }

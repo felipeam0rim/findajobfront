@@ -17,14 +17,22 @@ export class LoginModalComponent {
 
   login(event: Event): void {
     this.enterpriseService.login(this.email, this.password).subscribe({
-      next: (enterprise) => {
-        localStorage.setItem('enterprise', JSON.stringify(enterprise));
-        this.router.navigate(['/dashboard/perfil']);
+      next: (response: any) => {
+        const tipoUsuario = response.tipo;
+
+        if (tipoUsuario === 'empresa') {
+          this.router.navigate(['/dashboard/perfil']);
+          localStorage.setItem('response', JSON.stringify(response));
+        } else if (tipoUsuario === 'academico') {
+          this.router.navigate(['dashboard/perfil-academic']);
+          localStorage.setItem('response', JSON.stringify(response));
+        } else {
+          this.router.navigate(['/home']);
+        }
       },
       error: (err) => {
         alert('Crendenciais Inválidas!');
       },
     });
-    event.preventDefault();
   }
 }

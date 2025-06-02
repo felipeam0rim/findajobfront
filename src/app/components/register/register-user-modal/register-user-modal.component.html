@@ -1,0 +1,154 @@
+<div
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="registerTitle"
+  tabindex="0"
+>
+  <div class="modal-user">
+    <header>
+      <h2 id="registerTitle">Cadastro</h2>
+      <button class="btn" (click)="goBack()">Voltar</button>
+    </header>
+    <form (submit)="onSubmit($event)" novalidate>
+      <label for="nome">Nome completo:</label>
+      <input
+        id="nome"
+        type="text"
+        required
+        name="nome"
+        placeholder=""
+        [(ngModel)]="academic.name"
+      />
+
+      <label for="cpf">CPF:</label>
+      <input
+        id="cpf"
+        type="text"
+        required
+        name="cpf"
+        placeholder=""
+        [(ngModel)]="academic.cpf"
+      />
+      <label for="nasc">Data de Nascimento:</label>
+      <input
+        id="nasc"
+        type="date"
+        required
+        name="nasc"
+        placeholder=""
+        [(ngModel)]="academic.dateOfBirth"
+      />
+      <label for="gender">Gênero:</label>
+      <input
+        id="gender"
+        type="text"
+        required
+        name="gender"
+        placeholder=""
+        [(ngModel)]="academic.gender"
+      />
+      <label for="raca">Raça:</label>
+      <input
+        id="raca"
+        type="text"
+        required
+        name="raca"
+        placeholder=""
+        [(ngModel)]="academic.race"
+      />
+      <label for="pwd">Pessoa com deficiência?</label>
+      <input
+        id="pwd"
+        type="boolean"
+        required
+        name="pwd"
+        placeholder=""
+        [(ngModel)]="academic.pwd"
+      />
+      <label for="disablity">Se sim, informe qual:</label>
+      <input
+        id="disablity"
+        type="text"
+        required
+        name="disablity"
+        placeholder=""
+        [(ngModel)]="academic.disability"
+      />
+      <label for="cel">Telefone:</label>
+      <input
+        id="cel"
+        type="text"
+        required
+        name="cel"
+        placeholder=""
+        [(ngModel)]="academic.cellphone"
+      />
+      <label for="course">Curso:</label>
+      <input
+        id="course"
+        type="text"
+        required
+        name="course"
+        placeholder=""
+        [(ngModel)]="academic.course"
+      />
+      <label for="inst">Instituição de ensino:</label>
+      <input
+        id="inst"
+        type="text"
+        required
+        name="inst"
+        placeholder=""
+        [(ngModel)]="academic.educationalInstitution"
+      />
+      <label for="period">Período:</label>
+      <input
+        id="period"
+        type="text"
+        required
+        name="period"
+        placeholder=""
+        [(ngModel)]="academic.period"
+      />
+      <label for="turn">Turno:</label>
+      <input
+        id="turn"
+        type="text"
+        required
+        name="turn"
+        placeholder=""
+        [(ngModel)]="academic.turn"
+      />
+      <label for="prev">Previsão de conclusão de curso:</label>
+      <input
+        id="prev"
+        type="date"
+        required
+        name="prev"
+        placeholder=""
+        [(ngModel)]="academic.conclusion"
+      />
+
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        type="email"
+        required
+        name="email"
+        placeholder=""
+        [(ngModel)]="academic.email"
+      />
+      <label for="senha">Senha:</label>
+      <input
+        id="senha"
+        type="password"
+        required
+        name="senha"
+        placeholder=""
+        [(ngModel)]="academic.password"
+      />
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>

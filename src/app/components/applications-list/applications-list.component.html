@@ -1,0 +1,14 @@
+<div class="card-wrapper">
+  <div *ngIf="lista.length === 0" class="alert alert-info mt-3">
+    Você ainda não se candidatou a nenhuma vaga.
+  </div>
+  @for (application of lista; track $index) {
+  <div class="job-card">
+    <a style="cursor: pointer" tabindex="0">
+      <h3 id="titulo">{{ application.job.title }}</h3>
+      <p id="descricao">{{ application.job.description }}</p>
+      <p id="status">{{ application.status }}</p>
+    </a>
+  </div>
+  }
+</div>

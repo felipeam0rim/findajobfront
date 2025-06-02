@@ -14,11 +14,15 @@
   <app-login-modal *ngIf="isLoginOpen"></app-login-modal>
   <app-register-modal
     (back)="openRegister()"
-    *ngIf="isRegisterModalOpen"
+    *ngIf="isRegisterEnterpriseModalOpen"
   ></app-register-modal>
+  <app-register-user-modal
+    (back)="openRegister()"
+    *ngIf="isRegisterUserModalOpen"
+  ></app-register-user-modal>
 
   <section class="features" *ngIf="isRegisterOpen">
-    <a href="">
+    <a href="" (click)="openRegisterUserModal($event)">
       <div class="feature-card">
         <h2>Para Candidatos</h2>
         <p>
@@ -26,7 +30,7 @@
         </p>
       </div>
     </a>
-    <a href="" (click)="openRegisterModal($event)">
+    <a href="" (click)="openRegisterEnterpriseModal($event)">
       <div class="feature-card">
         <h2>Para Empresas</h2>
         <p>
