@@ -1,6 +1,7 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EnterpriseService } from '../../services/enterprise.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -12,17 +13,18 @@ export class LoginModalComponent {
   router = inject(Router);
   email: string = '';
   password: string = '';
-  onSubmit(event: Event): void {
+  enterpriseService = inject(EnterpriseService);
+
+  login(event: Event): void {
+    this.enterpriseService.login(this.email, this.password).subscribe({
+      next: (enterprise) => {
+        localStorage.setItem('enterprise', JSON.stringify(enterprise));
+        this.router.navigate(['/dashboard/perfil']);
+      },
+      error: (err) => {
+        alert('Crendenciais Inválidas!');
+      },
+    });
     event.preventDefault();
-    // Aqui você pode adicionar a lógica de autenticação
-    if (this.email == 'admin' && this.password == 'admin') {
-      this.router.navigate(['/dashboard/perfil'], {
-        queryParams: { email: this.email },
-      });
-    } else {
-      alert('credenciais inválidas');
-    }
-    console.log('Login tentado com:', this.email, this.password);
-    // Após processo de login, fechar modal
   }
 }

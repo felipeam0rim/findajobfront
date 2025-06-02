@@ -1,0 +1,90 @@
+<header>
+  <h2>Cadastrar Vaga</h2>
+</header>
+<div class="modal-overlap">
+  <form novalidate>
+    <div class="head">
+      <label for="titulo">Título da Vaga</label>
+      <input
+        id="titulo"
+        type="text"
+        required
+        name="titulo"
+        placeholder=""
+        [(ngModel)]="job.title"
+      />
+      <label for="descricao">Descrição</label>
+      <textarea
+        id="descricao"
+        type="text"
+        required
+        name="descricao"
+        placeholder="Digite a descrição da vaga"
+        [(ngModel)]="job.description"
+      ></textarea>
+    </div>
+    <div class="rest">
+      <label for="type">Localização</label>
+      <input
+        id="type"
+        type="text"
+        required
+        name="type"
+        placeholder=""
+        style="width: 800px"
+        [(ngModel)]="job.location"
+      />
+      <label for="modelo">Modelo</label>
+      <input
+        id="modelo"
+        type="text"
+        required
+        name="modelo"
+        placeholder=""
+        style="width: 50%"
+        [(ngModel)]="job.model"
+      />
+
+      <label for="type">Tipo da vaga</label>
+      <input
+        id="type"
+        type="text"
+        required
+        name="type"
+        placeholder=""
+        style="width: 50%"
+        [(ngModel)]="job.type"
+      />
+
+      <label for="prazo">Prazo</label>
+      <input
+        id="prazo"
+        type="text"
+        required
+        name="przo"
+        placeholder=""
+        style="width: 50%"
+        [(ngModel)]="job.deadline"
+      />
+      <label for="qnt">Quantidade de Etapas</label>
+      <input
+        id="qtd"
+        type="number"
+        required
+        name="qtd"
+        placeholder=""
+        style="width: 20%"
+      />
+      <label for="nomear">Nomear Etapa</label>
+      <input
+        id="nomear"
+        type="text"
+        required
+        name="nomear"
+        placeholder=""
+        style="width: 50%"
+      />
+    </div>
+    <button type="submit" (click)="createJob()">Cadastrar</button>
+  </form>
+</div>

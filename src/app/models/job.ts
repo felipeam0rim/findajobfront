@@ -1,5 +1,13 @@
 export class Job {
   id!: number;
-  titulo!: string;
-  empresa!: string;
+  title!: string;
+  enterprise = {
+    companyName: '',
+  };
+  description!: string;
+  model!: string;
+  type!: string;
+  deadline!: string;
+  location!: string;
+  // applications!: <User>
 }

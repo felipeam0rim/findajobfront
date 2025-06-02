@@ -1,6 +1,16 @@
-@for (job of lista; track $index) {
-<div class="job-card">
-  <h3>{{ job.titulo }}</h3>
-  <h5>{{ job.empresa }}</h5>
+<div class="card-wrapper">
+  @for (job of lista; track $index) {
+  <div class="job-card">
+    <a
+      routerLink="/dashboard/jobdetails/{{ job.id }}"
+      routerLinkActive="active"
+      style="cursor: pointer"
+      tabindex="0"
+    >
+      <h3 id="titulo">{{ job.title }}</h3>
+      <h5 id="nome-empresa">{{ job.enterprise.companyName }}</h5>
+      <h5 id="descricao">{{ job.description }}</h5>
+    </a>
+  </div>
+  }
 </div>
-}

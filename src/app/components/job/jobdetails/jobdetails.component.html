@@ -1,1 +1,18 @@
-<p>jobdetails works!</p>
+<div class="wrapper">
+  <h3 id="titulo">{{ job.title }}</h3>
+  <h4 id="nome-empresa">{{ job.enterprise.companyName }}</h4>
+  <p>{{ job.type }}</p>
+  <p>{{ job.model }}</p>
+  <p>{{ job.deadline }}</p>
+  <h5 id="descricao">{{ job.description }}</h5>
+  <div class="container">
+    <div class="div-btn">
+      <button class="btn">Ver Candidatos</button>
+      <button class="btn" (click)="goBack()">Voltar</button>
+    </div>
+    <div class="div-btn btn-crud">
+      <button class="btn edit">Editar</button>
+      <button class="btn delete" (click)="deleteJob(job)">Deletar</button>
+    </div>
+  </div>
+</div>

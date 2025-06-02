@@ -11,46 +11,81 @@
       <button class="btn" (click)="goBack()">Voltar</button>
     </header>
     <form (submit)="onSubmit($event)" novalidate>
-      <label for="name">Nome Completo</label>
+      <label for="razao-social">Razão Social:</label>
       <input
-        id="name"
+        id="razao-social"
         type="text"
         required
-        [(ngModel)]="name"
-        name="name"
-        placeholder="Seu nome completo"
+        [(ngModel)]="enterprise.companyName"
+        name="razao-social"
+        placeholder=""
       />
 
-      <label for="email">Email</label>
+      <label for="nomeFantasia">Nome Fantasia:</label>
+      <input
+        id="nomeFantasia"
+        type="text"
+        required
+        [(ngModel)]="enterprise.tradeName"
+        name="nomeFantasia"
+        placeholder=""
+      />
+
+      <label for="cnpj">CNPJ:</label>
+      <input
+        id="cnpj"
+        type="text"
+        required
+        [(ngModel)]="enterprise.cnpj"
+        name="cnpj"
+        placeholder=""
+      />
+      <label for="ramo">Ramo de Atividade:</label>
+      <input
+        id="ramo"
+        type="text"
+        required
+        [(ngModel)]="enterprise.lineOfBusiness"
+        name="ramo"
+        placeholder=""
+      />
+      <label for="numberOfEmployees">Número de funcionários:</label>
+      <input
+        id="numberOfEmployees"
+        type="number"
+        required
+        [(ngModel)]="enterprise.numberOfEmployees"
+        name="numberOfEmployees"
+        placeholder=""
+      />
+      <label for="porte">Porte da Empresa:</label>
+      <input
+        id="porte"
+        type="text"
+        required
+        [(ngModel)]="enterprise.companySize"
+        name="porte"
+        placeholder=""
+      />
+
+      <label for="email">Email:</label>
       <input
         id="email"
         type="email"
         required
-        [(ngModel)]="email"
+        [(ngModel)]="enterprise.email"
         name="email"
-        placeholder="seuemail@exemplo.com"
+        placeholder=""
       />
-
-      <label for="password">Senha</label>
+      <label for="senha">Senha:</label>
       <input
-        id="password"
+        id="senha"
         type="password"
         required
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Crie sua senha"
+        [(ngModel)]="enterprise.password"
+        name="senha"
+        placeholder="Digite sua senha"
       />
-
-      <label for="confirmPassword">Confirmar Senha</label>
-      <input
-        id="confirmPassword"
-        type="password"
-        required
-        [(ngModel)]="confirmPassword"
-        name="confirmPassword"
-        placeholder="Confirme sua senha"
-      />
-
       <button type="submit">Cadastrar</button>
     </form>
   </div>

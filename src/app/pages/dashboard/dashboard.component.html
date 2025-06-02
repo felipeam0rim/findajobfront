@@ -1,7 +1,7 @@
 <div class="dashboard-layout">
   <aside class="sidebar" aria-label="Menu principal">
-    <h1>MeuPortal</h1>
-    <p class="centralize">Bem vindo, {{ this.email }}</p>
+    <h1>FindAJob</h1>
+    <p *ngIf="tradeName">Bem vindo, {{ tradeName }}</p>
     <nav>
       <ul class="menu" role="menu">
         <li role="menuitem">
@@ -29,12 +29,12 @@
                 d="M15 14c1.66 0 2.99-1.34 2.99-3S16.66 8 15 8s-3 1.34-3 3 1.34 3 3 3zm6-3v7h-6v-7h6zm-10 7h-6v-7h6v7z"
               />
             </svg>
-            Vagas de estágio
+            Vagas
           </a>
         </li>
         <li role="menuitem">
           <a
-            routerLink="job/new"
+            routerLink="register-job"
             routerLinkActive="active"
             style="cursor: pointer"
             tabindex="0"
@@ -53,6 +53,7 @@
             routerLinkActive="active"
             style="cursor: pointer"
             tabindex="0"
+            (click)="logout()"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path
@@ -66,7 +67,7 @@
     </nav>
   </aside>
   <main class="content">
-    <div class="modal">
+    <div class="modal-dashboard">
       <router-outlet></router-outlet>
     </div>
   </main>

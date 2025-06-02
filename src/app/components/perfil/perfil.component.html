@@ -1,1 +1,99 @@
-<p>perfil works!</p>
+<div
+  class="modal-overlap"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="registerTitle"
+  tabindex="0"
+>
+  <div class="content">
+    <header>
+      <h2 id="registerTitle">Perfil</h2>
+    </header>
+    <form novalidate>
+      <label for="razao-social">Razão Social:</label>
+      <input
+        id="razao-social"
+        type="text"
+        required
+        [(ngModel)]="enterprise.companyName"
+        name="razao-social"
+        placeholder=""
+        disabled
+      />
+
+      <label for="nomeFantasia">Nome Fantasia:</label>
+      <input
+        id="nomeFantasia"
+        type="text"
+        required
+        [(ngModel)]="enterprise.tradeName"
+        name="nomeFantasia"
+        placeholder=""
+        disabled
+      />
+
+      <label for="cnpj">CNPJ:</label>
+      <input
+        id="cnpj"
+        type="text"
+        required
+        [(ngModel)]="enterprise.cnpj"
+        name="cnpj"
+        placeholder=""
+        disabled
+      />
+      <label for="ramo">Ramo de Atividade:</label>
+      <input
+        id="ramo"
+        type="text"
+        required
+        [(ngModel)]="enterprise.lineOfBusiness"
+        name="ramo"
+        placeholder=""
+        disabled
+      />
+      <label for="numberOfEmployees">Número de funcionários:</label>
+      <input
+        id="numberOfEmployees"
+        type="number"
+        required
+        [(ngModel)]="enterprise.numberOfEmployees"
+        name="numberOfEmployees"
+        placeholder=""
+        disabled
+      />
+      <label for="porte">Porte da Empresa:</label>
+      <input
+        id="porte"
+        type="text"
+        required
+        [(ngModel)]="enterprise.companySize"
+        name="porte"
+        placeholder=""
+        disabled
+      />
+
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        type="email"
+        required
+        [(ngModel)]="enterprise.email"
+        name="email"
+        placeholder=""
+        disabled
+      />
+      <label for="senha">Senha:</label>
+      <input
+        id="senha"
+        type="password"
+        required
+        [(ngModel)]="enterprise.password"
+        name="senha"
+        placeholder="Digite sua senha"
+        disabled
+      />
+      <button type="submit">Editar Perfil</button>
+    </form>
+  </div>
+</div>

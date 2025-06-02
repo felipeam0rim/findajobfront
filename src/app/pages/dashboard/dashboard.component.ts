@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   ActivatedRoute,
@@ -8,25 +9,24 @@ import {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterOutlet, RouterModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  email: string = '';
+  router = inject(Router);
+  tradeName: string = '';
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      this.email = params['email'];
-      console.log('Email recebido:', this.email);
-    });
+    const enterprise = localStorage.getItem('enterprise');
+    if (enterprise) {
+      this.tradeName = JSON.parse(enterprise).tradeName;
+    }
   }
 
-  router = inject(Router);
-
-  joblist() {
-    this.router.navigate(['dashboard/joblist']);
+  logout() {
+    localStorage.removeItem('enterprise');
   }
 }

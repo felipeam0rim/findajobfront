@@ -1,6 +1,6 @@
 <div class="home-container">
   <header class="header">
-    <h1>Bem-vindo ao Portal de Vagas</h1>
+    <h1>Bem-vindo ao Portal de Vagas FindAJob</h1>
     <p>Encontre as melhores oportunidades de Estágio e Jovem Aprendiz!</p>
     <div class="btn-group">
       <button (click)="openLogin()" class="btn login-btn" type="button">
@@ -18,7 +18,7 @@
   ></app-register-modal>
 
   <section class="features" *ngIf="isRegisterOpen">
-    <a href="" (click)="openRegisterModal($event)">
+    <a href="">
       <div class="feature-card">
         <h2>Para Candidatos</h2>
         <p>
@@ -26,7 +26,7 @@
         </p>
       </div>
     </a>
-    <a href="">
+    <a href="" (click)="openRegisterModal($event)">
       <div class="feature-card">
         <h2>Para Empresas</h2>
         <p>

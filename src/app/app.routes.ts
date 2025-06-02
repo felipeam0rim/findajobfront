@@ -4,6 +4,8 @@ import { RegisterModalComponent } from './components/register-modal/register-mod
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { JoblistComponent } from './components/job/joblist/joblist.component';
+import { JobdetailsComponent } from './components/job/jobdetails/jobdetails.component';
+import { RegisterJobComponent } from './components/job/register-job/register-job.component';
 
 export const routes: Routes = [
   {
@@ -30,14 +32,14 @@ export const routes: Routes = [
         path: 'joblist',
         component: JoblistComponent,
       },
-      // {
-      //   path: 'jobs/new',
-      //   component: JobdetailsComponent,
-      // },
-      // {
-      //   path: 'jobs/edit/:id',
-      //   component: JobdetailsComponent,
-      // },
+      {
+        path: 'jobdetails/:id',
+        component: JobdetailsComponent,
+      },
+      {
+        path: 'register-job',
+        component: RegisterJobComponent,
+      },
     ],
   },
 ];
