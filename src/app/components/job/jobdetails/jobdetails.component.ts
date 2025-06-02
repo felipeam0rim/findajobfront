@@ -20,7 +20,6 @@ export class JobdetailsComponent {
   isEditOpen: Boolean = false;
   authService = inject(AuthService);
   applicationService = inject(ApplicationService);
-  jobId: number = this.job.id;
 
   tipo: string | null = null;
   isUser: boolean = false;

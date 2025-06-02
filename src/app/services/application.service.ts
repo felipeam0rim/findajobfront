@@ -21,6 +21,10 @@ export class ApplicationService {
     return this.http.get<Application[]>(this.api + '/user/' + id);
   }
 
+  getApplicationsByJob(jobId: number): Observable<Application[]> {
+    return this.http.get<Application[]>(this.api + '/job/' + jobId);
+  }
+
   updateStatus(applicationId: number, status: string): Observable<Application> {
     return this.http.put<Application>(this.api + applicationId + '/status', {
       responseType: 'text' as 'json',

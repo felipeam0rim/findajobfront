@@ -9,8 +9,16 @@
   </div>
   <div class="container" *ngIf="!isEditOpen">
     <div class="div-btn">
-      <button class="btn" *ngIf="!isUser">Ver Candidatos</button>
-      <button class="btn" (click)="applyToJob(job.id)">Candidatar-se</button>
+      <button
+        class="btn"
+        *ngIf="!isUser"
+        [routerLink]="['/dashboard/job', job.id, 'candidates']"
+      >
+        Ver Candidatos
+      </button>
+      <button class="btn" *ngIf="isUser" (click)="applyToJob(job.id)">
+        Candidatar-se
+      </button>
       <button class="btn" (click)="goBack()">Voltar</button>
     </div>
     <div class="div-btn btn-crud">

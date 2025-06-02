@@ -8,6 +8,7 @@ import { JobdetailsComponent } from './components/job/jobdetails/jobdetails.comp
 import { RegisterJobComponent } from './components/job/register-job/register-job.component';
 import { PerfilAcademicComponent } from './components/perfil-academic/perfil-academic.component';
 import { ApplicationsListComponent } from './components/applications-list/applications-list.component';
+import { CandidatesListComponent } from './components/candidates-list/candidates-list.component';
 
 export const routes: Routes = [
   {
@@ -42,9 +43,14 @@ export const routes: Routes = [
         path: 'applications-list',
         component: ApplicationsListComponent,
       },
+
       {
         path: 'jobdetails/:id',
         component: JobdetailsComponent,
+      },
+      {
+        path: 'job/:id/candidates',
+        component: CandidatesListComponent,
       },
       {
         path: 'register-job',
